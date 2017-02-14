@@ -12,8 +12,7 @@
 #include "misc.hpp"
 
 static const char * PROJECT_NAME = "ezflash";
-static const char * PROJECT_VERSION = "0.2.0";
-
+static const char * PROJECT_VERSION = "0.2.1";
 
 class BetterCmdLineOutput : public TCLAP::StdOutput {
 public:

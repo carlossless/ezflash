@@ -67,7 +67,7 @@ void write_file(const std::vector<unsigned char> & data, const std::string & fil
 			throw FileIOException(e);
 		}
 	} else if (create_parent_dirs) {
-		if (!boost::filesystem::create_directories(parent_dirname)) {
+		if (!parent_dirname.empty() && !boost::filesystem::create_directories(parent_dirname)) {
 			std::string e = "Failed to write file; could not create parent directory: ";
 			e += parent_dirname.generic_string();
 			throw FileIOException(e);
@@ -194,7 +194,7 @@ size_t find_rom_eod(const std::vector<unsigned char> rom_data, const bool interc
 				return i;
 			}
 		}
-		
+
 		return 0;
 	}
 
