@@ -1,3 +1,5 @@
+PREFIX?=/usr/local
+
 CXX = cc
 CXXFLAGS = -std=c++11
 LDFLAGS = -lstdc++ -lz
@@ -25,7 +27,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(@D)
 	$(CXX) $(CXXFLAGS) -I$(SRCDIR) -c $< -o $@
 
-.PHONY: clean
+.PHONY: clean install
 
 clean:
 	rm -rf $(BINDIR) $(OBJDIR)
+
+install: $(BINDIR)/ezflash
+	cp -f $< "$(PREFIX)/bin/"
